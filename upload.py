@@ -29,7 +29,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         f = self.send_head()
         if f:
             self.copyfile(f, self.wfile)
-            f.close()	    
+            f.close()
 
     def do_HEAD(self):
         f = self.send_head()
@@ -91,7 +91,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             return (False, "Can't create file to write, do you have permission to write?")
         preline = self.rfile.readline()
         remainbytes -= len(preline)
-	if fn.find("jpeg") == -1: # This is a check to make sure that we're not getting executables and other junk. 
+	if fn.find("jpeg") == -1: # This is a check to make sure that we're not getting executables and other junk.
 	    print "File type not recognized" # Warning: this is a terrible anti-spam check. if you plan on deploying this, PLEASE substitute your own method
 	    return (False, "Invalid file type", fn, filename) # for anti spam here
 	else:
