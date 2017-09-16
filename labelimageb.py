@@ -12,9 +12,7 @@ def test(fn):
 
     # Unpersists graph from file
     with tf.gfile.FastGFile("retrained_graph.pb", 'rb') as f:
-        graph_def = tf.GraphD
-
-        ef()
+        graph_def = tf.GraphDef()
         graph_def.ParseFromString(f.read())
         _ = tf.import_graph_def(graph_def, name='')
 
