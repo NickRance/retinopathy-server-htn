@@ -36,6 +36,7 @@ def allowed_file(filename):
 
 @app.route('/', methods=['POST'])
 def upload_file():
+    finaloutput={}
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -61,11 +62,11 @@ def upload_file():
             finaloutput = json.dumps(finaloutput)
             # print(finaloutput)
             # return json.dumps(finaloutput)
-            return finaloutput
+    return finaloutput
             # return redirect(url_for('uploaded_file',
             #                         filename=filename))
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host = os.getenv("IP","0.0.0.0"),port = int (os.getenv('PORT', 33507)))
+    app.run(debug=False, host = os.getenv("IP","0.0.0.0"),port = int (os.getenv('PORT', 33507)))
     #app.run()
