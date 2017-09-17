@@ -58,8 +58,10 @@ def upload_file():
             finaloutput['results']['confidence'] = float(tfoutput[-8:-1])
             os.remove(os.path.join(app.config['UPLOAD_FOLDER'],filename))
             tfoutput =""
-            print(finaloutput)
-            return json.dumps(finaloutput)
+            finaloutput = json.dumps(finaloutput)
+            # print(finaloutput)
+            # return json.dumps(finaloutput)
+            return finaloutput
             # return redirect(url_for('uploaded_file',
             #                         filename=filename))
     return '''
